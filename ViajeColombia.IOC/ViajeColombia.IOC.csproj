@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ViajeColombia.BussinesLogic\ViajeColombia.BussinesLogic.csproj" />
+    <ProjectReference Include="..\ViajeColombiaAPI.DataAccess\ViajeColombia.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
