@@ -15,7 +15,11 @@ namespace ViajeColombia.BussinesLogic.Utility
         {
             CreateMap<Journey, JourneyDTO>()
                 .ForMember(destiny => destiny.Fligths,
-                    opt => opt.MapFrom(origin => origin.JourneyFlights));
+                    opt => opt.MapFrom(origin => origin.JourneyFlights))
+                .ForMember(destiny => destiny.Journey,
+                    opt => opt.MapFrom(origin => $"{origin.Origin}-{origin.Destination}"));
+
+
 
             CreateMap<JourneyFlight, FlightDTO>()
                 .ForMember(destiny => destiny.Origin,

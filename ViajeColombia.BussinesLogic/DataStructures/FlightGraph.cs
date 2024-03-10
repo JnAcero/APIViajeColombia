@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ViajeColombia.BussinesLogic.DTOs;
-using ViajeColombia.Models;
+﻿using ViajeColombia.BussinesLogic.DTOs;
+using ViajeColombia.BussinesLogic.Exceptions;
 
 namespace ViajeColombia.BussinesLogic.DataStructures
 {
     public class FlightGraph
     {
         private Dictionary<string, List<ApiResponseDTO>> adjacencyList;
-
         public FlightGraph(List<ApiResponseDTO> flights)
         {
             this.adjacencyList = new();
@@ -29,7 +23,6 @@ namespace ViajeColombia.BussinesLogic.DataStructures
                 adjacencyList[flight.DepartureStation].Add(flight);
             }
         }
-
         public bool HasPath(string origin, string destination, HashSet<string> visited)
         {
             try
@@ -40,8 +33,8 @@ namespace ViajeColombia.BussinesLogic.DataStructures
                 visited.Add(origin);
 
                 var existCurrentKey = adjacencyList.TryGetValue(origin, out var currentKey);
-                if (!existCurrentKey) return false;
-   
+                if (!existCurrentKey) throw new InvalidDestinationException("Origen o destino inexistente");
+
                 foreach (ApiResponseDTO neighbor in currentKey)
                 {
                     if (HasPath(neighbor.ArrivalStation, destination, visited) == true)
@@ -68,7 +61,7 @@ namespace ViajeColombia.BussinesLogic.DataStructures
                 int count = 0;
 
                 var existCurrentKey = adjacencyList.TryGetValue(origin, out var currentKey);
-                if (!existCurrentKey) return false;
+                if (!existCurrentKey)  throw new InvalidDestinationException("Origen o destino inexistente");
 
                 foreach (ApiResponseDTO neighbor in currentKey)
                 {
@@ -87,7 +80,6 @@ namespace ViajeColombia.BussinesLogic.DataStructures
             }
 
         }
-
         public int CountPossibleTrips(string origin, string destination, HashSet<string> visited)
         {
             if (origin == destination) return 1;
@@ -106,7 +98,6 @@ namespace ViajeColombia.BussinesLogic.DataStructures
 
             return count;
         }
-
         public List<List<ApiResponseDTO>> FindPossibleTrips(string origin, string destination, HashSet<string> visited)
         {
             if (origin == destination)
@@ -141,8 +132,7 @@ namespace ViajeColombia.BussinesLogic.DataStructures
 
             return possibleTrips;
         }
-
-        public List<List<ApiResponseDTO>> FindTripsWithMaxValue(string origin, string destination, HashSet<string> visited, int maxFlights)
+        public List<List<ApiResponseDTO>> FindPossibleTripsWithMaxValue(string origin, string destination, HashSet<string> visited, int? maxFlights)
         {
             if (origin == destination)
             {
@@ -163,7 +153,7 @@ namespace ViajeColombia.BussinesLogic.DataStructures
 
             foreach (ApiResponseDTO neighbor in currentKey)
             {
-                var nextTrips = FindTripsWithMaxValue(neighbor.ArrivalStation, destination, visited, maxFlights - 1);
+                var nextTrips = FindPossibleTripsWithMaxValue(neighbor.ArrivalStation, destination, visited, maxFlights - 1);
                 if (nextTrips != null)
                 {
                     foreach (var trip in nextTrips)
@@ -173,11 +163,9 @@ namespace ViajeColombia.BussinesLogic.DataStructures
                     }
                 }
             }
-
             visited.Remove(origin); // Backtrack
 
             return trips;
         }
-
     }
 }

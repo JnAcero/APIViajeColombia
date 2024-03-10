@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ViajeColombia.BussinesLogic.Clients;
 using ViajeColombia.BussinesLogic.Contracts;
+using ViajeColombia.BussinesLogic.Services;
 using ViajeColombia.BussinesLogic.Utility;
 using ViajeColombia.DataAccess.DBContext;
 using ViajeColombia.DataAccess.Repositories;
@@ -26,6 +27,8 @@ namespace ViajeColombia.IOC
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddScoped<IApiClientService, ApiClient>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IJourneyService, JourneyService>();
+            services.AddScoped<IJourneyCalculator, JourneyCalculator>();
         }
     }
 }

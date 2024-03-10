@@ -11,7 +11,5 @@ namespace ViajeColombia.BussinesLogic.Contracts
     public interface IApiClientService
     {
         Task<List<ApiResponseDTO>> GetJsonAsync();
-
-        Task<Object> CalculateJourney(string origin, string destination);
     }
 }

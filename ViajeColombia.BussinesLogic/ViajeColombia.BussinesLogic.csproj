@@ -16,8 +16,4 @@
     <ProjectReference Include="..\ViajeColombiaAPI.DataAccess\ViajeColombia.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
