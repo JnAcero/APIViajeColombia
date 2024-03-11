@@ -181,10 +181,6 @@ Cuando ocurren errores durante el procesamiento de las solicitudes, nuestra API 
 
 ### Error 400 - Bad Request
 
-#### Descripción del Error:
-
-Este error se produce cuando la solicitud enviada al servidor es incorrecta o no se puede procesar correctamente debido a datos incorrectos o faltantes.
-
 #### Causa Común:
 
 - Los parámetros de la solicitud son inválidos o están ausentes.
