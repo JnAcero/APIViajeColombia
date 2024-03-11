@@ -14,6 +14,40 @@ La solución de Conexión de Viajes es una aplicación Web API desarrollada en .
   
 - **Recuperación de Rutas Previas:** Recupera rutas previamente calculadas si se ingresan los mismos parámetros de origen y destino.
 
+  ## Información Relevante
+
+Esta sección proporciona información adicional sobre la solución y detalles sobre cualquier tema que no haya sido implementado correctamente.
+
+### Repositorio de Código
+
+La solución está alojada en el siguiente repositorio de código:
+
+[Enlace al Repositorio](https://github.com/JnAcero/APIViajeColombia)
+
+### Configuración de la Solución
+
+A continuación, se detallan algunos aspectos relevantes sobre la configuración de la solución:
+
+- **Cadena de Conexión a la Base de Datos:** Se debe configurar la cadena de conexión a la base de datos en el archivo de configuración `appsettings.Development.json` para que la aplicación pueda conectarse correctamente a la base de datos.
+
+- **Migraciones de la Base de Datos:** Antes de ejecutar la aplicación, asegúrese de haber aplicado todas las migraciones de la base de datos utilizando el comando `dotnet ef database update`.
+
+### Uso de Entity Framework como ORM
+
+En esta solución, se ha utilizado Entity Framework como nuestro Object-Relational Mapper (ORM) para interactuar con la base de datos.
+
+### Enfoque Code First para la Creación de la Base de Datos
+Se ha adoptado el enfoque Code First para la creación de la base de datos en nuestra aplicación. Con este enfoque, se nuestras clases de entidad en el código y luego Entity Framework genera automáticamente el esquema de la base de datos a partir de estas clases. Esto proporciona una forma intuitiva y orientada a objetos de diseñar nuestra base de datos, lo que facilita la comprensión y mantenimiento del código.
+
+### Uso de Llaves Primarias y Llaves Foráneas con Data Annotations
+Para establecer relaciones entre las tablas en nuestra base de datos, se ha utilizado llaves primarias y llaves foráneas mediante el uso de Data Annotations en nuestras clases de entidad.
+
+### Temas No Implementados
+
+En esta sección, se detallan los temas que no han sido implementados correctamente y posibles razones:
+
+- **[Unit Test]**: Tanto el controlador como los servicios poseen varias dependencias por lo que no pude abarcar los test con tiempo.
+
 ## Ejecutar Localmente
 
 1. **Clone el repositorio**
