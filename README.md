@@ -14,7 +14,7 @@ La solución de Conexión de Viajes es una aplicación Web API desarrollada en .
   
 - **Recuperación de Rutas Previas:** Recupera rutas previamente calculadas si se ingresan los mismos parámetros de origen y destino.
 
-  ### Información Relevante
+# Información Relevante
 
 Esta sección proporciona información adicional sobre la solución y detalles sobre cualquier tema que no haya sido implementado correctamente.
 
