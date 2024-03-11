@@ -117,3 +117,60 @@ En esta sección, se detallan los temas que no han sido implementados correctame
     ```bash
     http://localhost:5141/swagger
     ```
+## Documentación del Endpoint HTTP POST : Calculate
+
+A través de un método HTTP POST, nuestra API expone un endpoint que calcula todos los viajes posibles desde un origen hacia un destino. Este endpoint es útil para determinar las diferentes rutas disponibles para viajar de un lugar a otro.
+
+### Endpoint
+
+El endpoint para calcular los viajes posee la siguiente estructura: '../api/Journey/Calculate
+
+
+### Parámetros
+
+El endpoint espera que se le envíen los siguientes parámetros en el cuerpo de la solicitud:
+
+- `origin`: El código del origen del viaje (por ejemplo, "BGA").
+- `destination`: El código del destino del viaje (por ejemplo, "MED").
+- `numberOfFlights` (opcional): El número máximo de vuelos permitidos en la ruta. Si se incluye este parámetro, el endpoint calculará solo las rutas que contengan hasta ese número máximo de vuelos entre el origen y el destino. Si no se incluye este parámetro, se calcularán todas las rutas posibles entre los dos puntos sin restricción en el número de vuelos.
+
+
+### Ejemplo del Cuerpo de la Solicitud
+
+```json
+{
+  "origin": "BGA",
+  "destination": "MED",
+  "numberOfFlights": 2
+}
+```
+Después de realizar una solicitud al endpoint para calcular los viajes posibles, la API responderá con una respuesta que contiene información sobre las rutas encontradas.
+
+### Estructura de la Respuesta
+
+La respuesta del endpoint tendrá la siguiente estructura:
+
+```json
+{
+  "response": [
+    {
+      "journey": "BGA-MED",
+      "origin": "BGA",
+      "destination": "MED",
+      "price": 1000,
+      "flights": [
+        {
+          "origin": "BGA",
+          "destination": "MED",
+          "price": 1000,
+          "transport": {
+            "flightCarrier": "AV",
+            "flightNumber": "8060"
+          }
+        }
+      ]
+    }
+  ],
+  "isSuccess": true,
+  "message": null
+}
