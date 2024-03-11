@@ -36,19 +36,13 @@ La solución de Conexión de Viajes es una aplicación Web API desarrollada en .
     dotnet restore
     ```
 
-5. **Ejecutar las migraciones para crear la base de datos**
-
-    ```bash
-    dotnet ef database update
-    ```
-
-6. **Compile el proyecto**
+5. **Compile el proyecto**
 
     ```bash
     dotnet build
     ```
 
-7. **Configura la cadena de conexión a la base de datos en el archivo de configuración**
+6. **Configura la cadena de conexión a la base de datos en el archivo de configuración**
 
     Editar el archivo `appsettings.Development.json` dentro de la carpeta `/ViajeColombia.API`:
 
@@ -60,13 +54,13 @@ La solución de Conexión de Viajes es una aplicación Web API desarrollada en .
 
     Reemplazar los parámetros de la cadena de conexión (`Server`, `Database`, `Username`, `Password`) de PostgreSQL por los propios del servidor.
 
-8. **Instalar herramientas de desarrollo de Entity Framework Core**
+7. **Instalar herramientas de desarrollo de Entity Framework Core**
 
     ```bash
     dotnet tool install --global dotnet-ef
     ```
 
-9. **Ejecutar las migraciones de la base de datos**
+8. **Ejecutar las migraciones de la base de datos**
 
     Diríjase al directorio `/ViajeColombia.API` y desde allí ejecute el siguiente comando:
 
@@ -76,7 +70,7 @@ La solución de Conexión de Viajes es una aplicación Web API desarrollada en .
 
     Esto creará las tablas en la base de datos y estará listo para probar la solución.
 
-10. **Ejecutar la aplicación**
+9. **Ejecutar la aplicación**
 
     Ejecute el siguiente comando dentro del directorio `/ViajeColombia.API`:
 
