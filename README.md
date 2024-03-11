@@ -202,3 +202,32 @@ Cuando ocurren errores durante el procesamiento de las solicitudes, la API devue
   "isSuccess": false,
   "message": "La ruta que intenta calcular no es posible de realizar"
 }
+```
+## Endpoint HTTP GET : Calculate - Versión 1.1
+
+A través de un método HTTP GET, nuestra API expone un endpoint que permite calcular rutas de viaje entre un origen y un destino. Esta versión específica del endpoint permite la especificación opcional de un número máximo de vuelos en la ruta. Y sus parametros los recibe de la query de la url.
+
+### Endpoint
+
+El endpoint para calcular rutas se encuentra en la siguiente ruta: 'http://localhost:5141/api/Journey/V1.1/Calculate
+
+### Parámetros
+
+El endpoint acepta los siguientes parámetros en la cadena de consulta (query string):
+
+- `origin` (requerido): El código del origen del viaje.
+- `destination` (requerido): El código del destino del viaje.
+- `maxVuelos` (opcional): El número máximo de vuelos permitidos en la ruta. Si se incluye este parámetro, el endpoint calculará solo las rutas que contengan hasta ese número máximo de vuelos entre el origen y el destino.
+
+#### Ejemplo de Uso
+
+```http
+GET /api/viajes/V1.1/Calculate?origin=BGA&destination=MED&maxVuelos=2
+```
+
+### Pasar la version en el Header de la request
+Incluya el encabezado : `X-Version: 1.1`
+
+### Pasar la version en la Query string
+Incluya el parámetro `ver` con el número de versión deseado:
+`?ver=1.1`
