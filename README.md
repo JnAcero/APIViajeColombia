@@ -177,7 +177,7 @@ La respuesta del endpoint tendrá la siguiente estructura:
 ```
 ## Manejo de Errores
 
-Cuando ocurren errores durante el procesamiento de las solicitudes, nuestra API devuelve una respuesta adecuada junto con un código de estado HTTP correspondiente. A continuación, se detallan los posibles errores que pueden ocurrir y cómo se manejan:
+Cuando ocurren errores durante el procesamiento de las solicitudes, la API devuelve una respuesta adecuada junto con un código de estado HTTP correspondiente. A continuación, se detallan los posibles errores que pueden ocurrir y cómo se manejan:
 
 ### Error 400 - Bad Request
 
