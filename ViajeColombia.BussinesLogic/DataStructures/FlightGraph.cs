@@ -27,13 +27,13 @@ namespace ViajeColombia.BussinesLogic.DataStructures
         {
             try
             {
+                var existCurrentKey = adjacencyList.TryGetValue(origin, out var currentKey);
+
+                if (!existCurrentKey) throw new InvalidDestinationException("Origen o destino inexistente");
                 if (origin == destination) return true;
                 if (visited.Contains(origin)) return false;
 
                 visited.Add(origin);
-
-                var existCurrentKey = adjacencyList.TryGetValue(origin, out var currentKey);
-                if (!existCurrentKey) throw new InvalidDestinationException("Origen o destino inexistente");
 
                 foreach (ApiResponseDTO neighbor in currentKey)
                 {
@@ -54,14 +54,14 @@ namespace ViajeColombia.BussinesLogic.DataStructures
         {
             try
             {
+                var existCurrentKey = adjacencyList.TryGetValue(origin, out var currentKey);
+
+                if (!existCurrentKey) throw new InvalidDestinationException("Origen o destino inexistente");
                 if (origin == destination) return true;
                 if (visited.Contains(origin) || maxFlights <= 0) return false;
 
                 visited.Add(origin);
                 int count = 0;
-
-                var existCurrentKey = adjacencyList.TryGetValue(origin, out var currentKey);
-                if (!existCurrentKey)  throw new InvalidDestinationException("Origen o destino inexistente");
 
                 foreach (ApiResponseDTO neighbor in currentKey)
                 {

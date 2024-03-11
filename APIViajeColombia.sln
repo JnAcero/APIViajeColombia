@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeColombia.Models", "Via
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeColombia.IOC", "ViajeColombia.IOC\ViajeColombia.IOC.csproj", "{60955490-AEDD-4FF5-8B7D-C9C6CF4A79DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViajeColombia.Tests", "ViajeColombia.Tests\ViajeColombia.Tests.csproj", "{37B03EF2-8C31-4D29-9E50-32DC452E8FD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViajeColombia.Tests", "ViajeColombia.Tests\ViajeColombia.Tests.csproj", "{37B03EF2-8C31-4D29-9E50-32DC452E8FD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{24BF7666-A4E7-42CF-B6DD-0A1AD227796D}"
+	ProjectSection(SolutionItems) = preProject
+		nlog.config = nlog.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
