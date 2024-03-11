@@ -174,3 +174,35 @@ La respuesta del endpoint tendrá la siguiente estructura:
   "isSuccess": true,
   "message": null
 }
+```
+## Manejo de Errores
+
+Cuando ocurren errores durante el procesamiento de las solicitudes, nuestra API devuelve una respuesta adecuada junto con un código de estado HTTP correspondiente. A continuación, se detallan los posibles errores que pueden ocurrir y cómo se manejan:
+
+### Error 400 - Bad Request
+
+#### Descripción del Error:
+
+Este error se produce cuando la solicitud enviada al servidor es incorrecta o no se puede procesar correctamente debido a datos incorrectos o faltantes.
+
+#### Causa Común:
+
+- Los parámetros de la solicitud son inválidos o están ausentes.
+- El origen o destino especificados no existen en el sistema.
+- En caso de incluir un maximo de vuelos por viaje, no se pueden calcular con ese cantidad.
+
+#### Ejemplo de Respuesta:
+
+```json
+{
+  "response": null,
+  "isSuccess": false,
+  "message": "Origen o destino inexistente"
+}
+```
+```json
+{
+  "response": null,
+  "isSuccess": false,
+  "message": "La ruta que intenta calcular no es posible de realizar"
+}
