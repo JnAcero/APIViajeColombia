@@ -185,7 +185,7 @@ Cuando ocurren errores durante el procesamiento de las solicitudes, la API devue
 
 - Los parámetros de la solicitud son inválidos o están ausentes.
 - El origen o destino especificados no existen en el sistema.
-- En caso de incluir un maximo de vuelos por viaje, no se pueden calcular con ese cantidad.
+- En caso de incluir un maximo de vuelos por viaje, no se pueden calcular con esa cantidad.
 
 #### Ejemplo de Respuesta:
 
